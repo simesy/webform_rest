@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\webform_rest\Plugin\rest\resource;
+namespace Drupal\webform_vuejs\Plugin\rest\resource;
 
 use Drupal\webform\Entity\Webform;
 use Drupal\webform\WebformSubmissionForm;
@@ -13,15 +13,15 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  * Creates a resource for submitting a webform.
  *
  * @RestResource(
- *   id = "webform_rest_submit",
+ *   id = "webform_vuejs_submit",
  *   label = @Translation("Webform Submit"),
  *   uri_paths = {
- *     "canonical" = "/webform_rest/submit",
- *     "https://www.drupal.org/link-relations/create" = "/webform_rest/submit"
+ *     "canonical" = "/webform_vuejs/submit",
+ *     "https://www.drupal.org/link-relations/create" = "/webform_vuejs/submit"
  *   }
  * )
  */
-class WebformSubmitResource extends ResourceBase {
+class WebformVuejsSubmitResource extends ResourceBase {
 
   /**
    * Responds to entity POST requests and saves the new entity.

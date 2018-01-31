@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\webform_rest\Plugin\rest\resource;
+namespace Drupal\webform_vuejs\Plugin\rest\resource;
 
 use Drupal\webform\Entity\WebformSubmission;
 use Drupal\rest\Plugin\ResourceBase;
@@ -11,14 +11,14 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
  * Creates a resource for retrieving webform submission data.
  *
  * @RestResource(
- *   id = "webform_rest_submission",
+ *   id = "webform_vuejs_submission",
  *   label = @Translation("Webform Submission"),
  *   uri_paths = {
- *     "canonical" = "/webform_rest/{webform_id}/submission/{sid}"
+ *     "canonical" = "/webform_vuejs/{webform_id}/submission/{sid}"
  *   }
  * )
  */
-class WebformSubmissionResource extends ResourceBase {
+class WebformVuejsSubmissionResource extends ResourceBase {
 
   /**
    * Retrieve submission data.
