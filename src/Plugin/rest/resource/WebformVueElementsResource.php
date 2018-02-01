@@ -1,26 +1,25 @@
 <?php
 
-namespace Drupal\webform_vuejs\Plugin\rest\resource;
+namespace Drupal\webform_vue\Plugin\rest\resource;
 
 use Drupal\Core\Render\Element;
 use Drupal\webform\Entity\Webform;
 use Drupal\rest\Plugin\ResourceBase;
 use Drupal\rest\ModifiedResourceResponse;
-use PHPUnit\Runner\Exception;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 /**
  * Creates a resource for retrieving webform elements.
  *
  * @RestResource(
- *   id = "webform_vuejs_elements",
+ *   id = "webform_vue_elements",
  *   label = @Translation("Webform Elements"),
  *   uri_paths = {
- *     "canonical" = "/webform_vuejs/{webform_id}/elements"
+ *     "canonical" = "/webform_vue/{webform_id}/elements"
  *   }
  * )
  */
-class WebformVuejsElementsResource extends ResourceBase {
+class WebformVueElementsResource extends ResourceBase {
 
   /**
    * Responds to GET requests, returns webform elements.
@@ -64,11 +63,7 @@ class WebformVuejsElementsResource extends ResourceBase {
               'inputType' => 'text',
               'label' => $field['#title'],
               'model' => $element,
-              'readonly' => false, // Not sure where to get from webform yet.
               'required' => $field['#required'],
-              'featured' => false, // Uncertain about this too.
-              // '#placeholder' =>  "User's name",
-              // '#validator' => 'VueFormGenerator.validators.string',
             ];
             $model[$element] = $field['#default_value'];
             break;
@@ -112,7 +107,7 @@ class WebformVuejsElementsResource extends ResourceBase {
               // This currently isn't transforming the array.
               $options[] = [
                 'id' => $key,
-                'name' => (string)$data,
+                'name' => (string) $data,
               ];
             }
             $schema['fields'][] = [
@@ -154,8 +149,8 @@ class WebformVuejsElementsResource extends ResourceBase {
         'model' => $model,
         'schema' => $schema,
         'formOptions' => [
-          'validateAfterLoad' => true,
-          'validateAfterChanged' => true,
+          'validateAfterLoad' => TRUE,
+          'validateAfterChanged' => TRUE,
         ],
       ];
 
@@ -166,6 +161,5 @@ class WebformVuejsElementsResource extends ResourceBase {
     throw new HttpException(t("Can't load webform."));
 
   }
-
 
 }

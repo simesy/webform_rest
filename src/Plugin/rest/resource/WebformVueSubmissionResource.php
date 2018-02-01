@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\webform_vuejs\Plugin\rest\resource;
+namespace Drupal\webform_vue\Plugin\rest\resource;
 
 use Drupal\webform\Entity\WebformSubmission;
 use Drupal\rest\Plugin\ResourceBase;
@@ -11,21 +11,20 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
  * Creates a resource for retrieving webform submission data.
  *
  * @RestResource(
- *   id = "webform_vuejs_submission",
+ *   id = "webform_vue_submission",
  *   label = @Translation("Webform Submission"),
  *   uri_paths = {
- *     "canonical" = "/webform_vuejs/{webform_id}/submission/{sid}"
+ *     "canonical" = "/webform_vue/{webform_id}/submission/{sid}"
  *   }
  * )
  */
-class WebformVuejsSubmissionResource extends ResourceBase {
+class WebformVueSubmissionResource extends ResourceBase {
 
   /**
    * Retrieve submission data.
    *
    * @param string $webform_id
    *   Webform ID.
-   *
    * @param int $sid
    *   Submission ID.
    *
@@ -40,8 +39,8 @@ class WebformVuejsSubmissionResource extends ResourceBase {
     if (empty($webform_id) || empty($sid)) {
       $errors = [
         'error' => [
-          'message' => 'Both webform ID and submission ID are required.'
-        ]
+          'message' => 'Both webform ID and submission ID are required.',
+        ],
       ];
       return new ModifiedResourceResponse($errors);
     }
@@ -57,7 +56,7 @@ class WebformVuejsSubmissionResource extends ResourceBase {
 
       $response = [
         'entity' => $webform_submission,
-        'data' => $data
+        'data' => $data,
       ];
 
       // Return the submission.

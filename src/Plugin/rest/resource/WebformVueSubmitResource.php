@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\webform_vuejs\Plugin\rest\resource;
+namespace Drupal\webform_vue\Plugin\rest\resource;
 
 use Drupal\webform\Entity\Webform;
 use Drupal\webform\WebformSubmissionForm;
@@ -13,15 +13,15 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  * Creates a resource for submitting a webform.
  *
  * @RestResource(
- *   id = "webform_vuejs_submit",
+ *   id = "webform_vue_submit",
  *   label = @Translation("Webform Submit"),
  *   uri_paths = {
- *     "canonical" = "/webform_vuejs/submit",
- *     "https://www.drupal.org/link-relations/create" = "/webform_vuejs/submit"
+ *     "canonical" = "/webform_vue/submit",
+ *     "https://www.drupal.org/link-relations/create" = "/webform_vue/submit"
  *   }
  * )
  */
-class WebformVuejsSubmitResource extends ResourceBase {
+class WebformVueSubmitResource extends ResourceBase {
 
   /**
    * Responds to entity POST requests and saves the new entity.
@@ -41,8 +41,8 @@ class WebformVuejsSubmitResource extends ResourceBase {
     if (empty($webform_data['webform_id'])) {
       $errors = [
         'error' => [
-          'code' => '500'
-        ]
+          'code' => '500',
+        ],
       ];
       return new JsonResponse($errors, 500);
     }
@@ -66,8 +66,8 @@ class WebformVuejsSubmitResource extends ResourceBase {
     if (!$webform) {
       $errors = [
         'error' => [
-          'message' => 'Invalid webform_id value.'
-        ]
+          'message' => 'Invalid webform_id value.',
+        ],
       ];
       return new ModifiedResourceResponse($errors);
     }
