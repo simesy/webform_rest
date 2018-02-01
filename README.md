@@ -1,5 +1,7 @@
 # Quick HELLO WORLD PoC
 
+![What to what](https://raw.githubusercontent.com/simesy/webform_rest/8.x-2.x/whatisit.png)
+
 ## Drupal
 
 Note that this module was based on webform_rest and the README.txt is in the same
