@@ -17,5 +17,15 @@ In the ./example directory
 
 * npm install
 * npm run dev
-* Access the site that
+* modify CHANGEME in the HelloWorld.vue to the Drupal site
+* Access the localhost VueJS app
 * You should see the Contact form
+
+## How was this built
+
+This app is a VueJS boilerplate with:
+
+* `npm install vue-form-generator --save`
+* `npm install axios --save`
+* A customised HelloWorld.vue 
+
